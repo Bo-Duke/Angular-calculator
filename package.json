@@ -2,6 +2,8 @@
   "name": "angular2-calculator",
   "version": "0.0.1",
   "scripts": {
+      "postinstall": "npm run typings install",
+      "typings" : "typings"
   },
   "dependencies": {
     "angular2": "^2.0.0-beta.6",
