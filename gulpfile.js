@@ -17,6 +17,21 @@ gulp.task('copy:assets', ['clean'], function() {
     .pipe(gulp.dest('dist'))
 });
 
+// copy dependencies
+gulp.task('copy:libs', ['clean'], function() {
+  return gulp.src([
+      'node_modules/es6-shim/es6-shim.min.js',
+      'node_modules/systemjs/dist/system-polyfills.js',
+      'node_modules/angular2/es6/dev/src/testing/shims_for_IE.js',
+      'node_modules/angular2/bundles/angular2-polyfills.js',
+      'node_modules/systemjs/dist/system.src.js',
+      'node_modules/rxjs/bundles/Rx.js',
+      'node_modules/angular2/bundles/angular2.dev.js',
+      'node_modules/angular2/bundles/router.dev.js'
+    ])
+    .pipe(gulp.dest('dist/lib'))
+});
+
 // TypeScript compile
 gulp.task('compile', ['clean'], function () {
   return gulp
@@ -38,6 +53,6 @@ gulp.task('serve', ['build'], function() {
   gulp.watch(['app/**/*', 'index.html', 'styles.css'], ['buildAndReload']);
 });
 
-gulp.task('build', ['compile', 'copy:assets']);
+gulp.task('build', ['compile', 'copy:libs', 'copy:assets']);
 gulp.task('buildAndReload', ['build'], reload);
 gulp.task('default', ['build']);
