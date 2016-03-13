@@ -1,0 +1,27 @@
+.calc{
+    max-width: 300px;
+    border: 1px solid black;
+    padding: 5px;
+}
+.display{
+    height: 80px;
+    border: 1px solid black;
+}
+.line-calc{
+    border-bottom: 1px solid black;
+}
+.buttons{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+.button{
+    margin: 1px;
+    width: 96px;
+    height: 96px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid black;
+}
