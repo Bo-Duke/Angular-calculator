@@ -1,6 +1,6 @@
 <div class="calc">
     <div class="display">
-        <p class="line-calc">{{calcul}}</p>
+        <p class="line-calc">{{currentNumber}}</p>
         <p class="line-result">{{result}}</p>
     </div>
     <div class="buttons">
@@ -8,6 +8,9 @@
             class="button"
             (click)="printNumber(number)">
             <p>{{number}}</p>
+        </div>
+        <div class="button" (click)="addNumbers()">
+            <p>+</p>
         </div>
         <div class="button" (click)="printResult()">
             <p>=</p>

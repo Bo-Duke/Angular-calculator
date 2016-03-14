@@ -6,13 +6,22 @@ import {Component} from 'angular2/core';
     styleUrls: ['app/app.component.css']
 })
 export class AppComponent {
-    calcul: string = "";
-    result: string = "";
-    buttons: string[] = ['1','2','3','4','5','6','7','8','9','0','+'];
+    currentNumber: string = "";
+    calcul: number[] = [];
+    result: number = 0;
+    buttons: string[] = ['1','2','3','4','5','6','7','8','9','0'];
     printNumber(numero: string){
-        this.calcul += numero;
+        this.currentNumber += numero;
+        console.log(this.currentNumber);
+        console.log(this.calcul);
+    }
+    addNumbers(){
+        this.currentNumber = "";
+        this.calcul.push(parseInt(this.currentNumber,10));
     }
     printResult(){
-        this.result = this.calcul;
+        for (let i = 0; i < this.calcul.length; i++) {
+            this.result += this.calcul[i];
+        }
     }
 }
