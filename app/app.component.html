@@ -1,13 +1,16 @@
 <div class="calc">
     <div class="display">
         <p class="line-calc">{{calcul}}</p>
-        <p class="line-result"></p>
+        <p class="line-result">{{result}}</p>
     </div>
     <div class="buttons">
-        <div *ngFor="#number of [1,2,3,4,5,6,7,8,9]"
+        <div *ngFor="#number of buttons"
             class="button"
             (click)="printNumber(number)">
             <p>{{number}}</p>
+        </div>
+        <div class="button" (click)="printResult()">
+            <p>=</p>
         </div>
     </div>
 </div>
