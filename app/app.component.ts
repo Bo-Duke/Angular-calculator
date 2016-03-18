@@ -22,5 +22,6 @@ export class AppComponent {
         for (let i = 0; i < this.calcul.length; i++) {
             this.result += this.calcul[i];
         }
+        this.calcul = [];
     }
 }
