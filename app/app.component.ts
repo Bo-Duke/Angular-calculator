@@ -12,14 +12,13 @@ export class AppComponent {
     buttons: string[] = ['1','2','3','4','5','6','7','8','9','0'];
     printNumber(numero: string){
         this.currentNumber += numero;
-        console.log(this.currentNumber);
-        console.log(this.calcul);
     }
     addNumbers(){
-        this.currentNumber = "";
         this.calcul.push(parseInt(this.currentNumber,10));
+        this.currentNumber = "";
     }
     printResult(){
+        this.addNumbers();
         for (let i = 0; i < this.calcul.length; i++) {
             this.result += this.calcul[i];
         }
