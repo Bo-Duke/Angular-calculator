@@ -8,9 +8,10 @@ import {Component} from 'angular2/core';
 export class AppComponent {
     currentNumber: string = "";
     calcul: number[] = [];
-    result: number = 0;
+    result: number = null;
     buttons: string[] = ['1','2','3','4','5','6','7','8','9','0'];
     printNumber(numero: string){
+        this.result = null;
         this.currentNumber += numero;
     }
     addNumbers(){
