@@ -5,6 +5,7 @@ const tscConfig = require('./tsconfig.json');
 const sourcemaps = require('gulp-sourcemaps');
 const browserSync = require('browser-sync');
 const autoprefixer = require('gulp-autoprefixer');
+const ghPages = require('gulp-gh-pages');
 const reload = browserSync.reload;
 
 // clean the contents of the distribution directory
@@ -16,6 +17,11 @@ gulp.task('clean', function () {
 gulp.task('copy:assets', ['clean','autoprefixer'], function() {
   return gulp.src(['app/**/*', 'index.html', '!app/**/*.ts','!app/**/*.css'], { base : './' })
     .pipe(gulp.dest('dist'))
+});
+
+// Deploy to gh-pages
+gulp.task('deploy', ['build'], function() {
+  return gulp.src('./dist/**/*').pipe(ghPages());
 });
 
 gulp.task('autoprefixer', function () {
@@ -60,7 +66,7 @@ gulp.task('serve', ['build'], function() {
     }
   });
 
-  gulp.watch(['app/**/*', 'index.html', 'styles.css'], ['buildAndReload']);
+gulp.watch(['app/**/*', 'index.html', 'styles.css'], ['buildAndReload']);
 });
 
 gulp.task('build', ['compile', 'copy:libs', 'copy:assets']);
