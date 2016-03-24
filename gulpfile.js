@@ -4,6 +4,7 @@ const typescript = require('gulp-typescript');
 const tscConfig = require('./tsconfig.json');
 const sourcemaps = require('gulp-sourcemaps');
 const browserSync = require('browser-sync');
+const autoprefixer = require('gulp-autoprefixer');
 const reload = browserSync.reload;
 
 // clean the contents of the distribution directory
@@ -12,9 +13,18 @@ gulp.task('clean', function () {
 });
 
 // copy static assets - i.e. non TypeScript compiled source
-gulp.task('copy:assets', ['clean'], function() {
-  return gulp.src(['app/**/*', 'index.html', 'styles.css', '!app/**/*.ts'], { base : './' })
+gulp.task('copy:assets', ['clean','autoprefixer'], function() {
+  return gulp.src(['app/**/*', 'index.html', '!app/**/*.ts','!app/**/*.css'], { base : './' })
     .pipe(gulp.dest('dist'))
+});
+
+gulp.task('autoprefixer', function () {
+	return gulp.src(['styles.css','app/**/*.css'], { base : './' })
+		.pipe(autoprefixer({
+			browsers: ['last 2 versions'],
+			cascade: false
+		}))
+		.pipe(gulp.dest('dist'));
 });
 
 // copy dependencies
