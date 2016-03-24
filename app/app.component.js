@@ -21,24 +21,35 @@ System.register(['angular2/core'], function(exports_1, context_1) {
             AppComponent = (function () {
                 function AppComponent() {
                     this.currentNumber = "";
+                    this.currentCalcul = "";
                     this.calcul = [];
                     this.result = null;
                     this.buttons = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '0'];
                 }
                 AppComponent.prototype.printNumber = function (numero) {
                     this.result = null;
+                    if (this.reset) {
+                        this.currentCalcul = '';
+                        this.currentNumber = "";
+                        this.reset = false;
+                    }
                     this.currentNumber += numero;
+                    this.currentCalcul += numero;
+                    console.log(this.currentNumber);
                 };
                 AppComponent.prototype.addNumbers = function () {
                     this.calcul.push(parseInt(this.currentNumber, 10));
+                    this.currentCalcul += '+';
                     this.currentNumber = "";
                 };
                 AppComponent.prototype.printResult = function () {
-                    this.addNumbers();
+                    this.calcul.push(parseInt(this.currentNumber, 10));
+                    console.log(this.calcul);
                     for (var i = 0; i < this.calcul.length; i++) {
                         this.result += this.calcul[i];
                     }
                     this.calcul = [];
+                    this.reset = true;
                 };
                 AppComponent = __decorate([
                     core_1.Component({
