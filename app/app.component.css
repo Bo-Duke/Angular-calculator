@@ -32,10 +32,10 @@
     height: 40px;
     margin: 0;
 }
-
 .line-result{
     font-size: 1.5em;
 }
+
 .buttons{
     display: -webkit-flex;
     display: -ms-flexbox;
@@ -51,9 +51,9 @@
     align-items: center;
 }
 .button{
-    margin: 1px;
-    width: 96px;
-    height: 96px;
+    margin: 15px;
+    width: 65px;
+    height: 65px;
     display: -webkit-flex;
     display: -ms-flexbox;
     display: flex;
@@ -63,6 +63,8 @@
     -webkit-justify-content: center;
     -ms-flex-pack: center;
     justify-content: center;
+    border-radius: 50%;
+    transition: all 0.2s;
 
     -webkit-user-select: none;
 
@@ -71,4 +73,8 @@
     -ms-user-select: none;
 
     user-select: none;
+}
+.button:hover{
+    background-color: #B95C5C;
+    color: #FFFFFF;
 }
