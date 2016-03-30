@@ -1,7 +1,7 @@
 .calc{
     max-width: 300px;
-    color: #B95C5C;
-    background-color: #F5F4E9;
+    color: #0065AD;
+    background-color: #FFFFFF;
 
     box-shadow: 0 3px 6px rgba(0,0,0,0.16);
 
@@ -13,7 +13,7 @@
     padding-left: 10px;
 
     color: #F5F4E9;
-    background-color: #B95C5C;
+    background-color: #0065AD;
     overflow: hidden;
 }
 .display>div{
@@ -75,6 +75,6 @@
     user-select: none;
 }
 .button:hover{
-    background-color: #B95C5C;
+    background-color: #0065AD;
     color: #FFFFFF;
 }
